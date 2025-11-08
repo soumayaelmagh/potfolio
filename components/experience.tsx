@@ -90,15 +90,15 @@ function TimelineItem({ item, index }: { item: Item; index: number }) {
         )}
 
         <ul className="mt-3 list-disc list-inside space-y-1.5 text-gray-300">
-          {item.bullets.map((b, i) => (
-            <li key={i} className="leading-relaxed">{b}</li>
+          {item.bullets.map((b:string, i:number) => (
+            <li key={`${item.id}-b${i}`} className="leading-relaxed">{b}</li>
           ))}
         </ul>
 
         {item.stack && item.stack.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2">
             {item.stack.map((t) => (
-              <span key={t} className="px-2 py-1 text-xs rounded-full bg-gray-800 text-gray-300">
+              <span key={`${item.id}-t-${t}`} className="px-2 py-1 text-xs rounded-full bg-gray-800 text-gray-300">
                 {t}
               </span>
             ))}
